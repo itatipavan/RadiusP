@@ -66,20 +66,20 @@ const Applications = () => {
       </div>
 
       <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
-        <Col xs={24} sm={8}><Card size="small"><Statistic title="Total Applications" value={statusCounts.total} prefix={<FileTextOutlined style={{ color: '#1976d2' }} />} /></Card></Col>
-        <Col xs={24} sm={8}><Card size="small"><Statistic title="In Progress" value={statusCounts.inProgress} valueStyle={{ color: '#faad14' }} /></Card></Col>
-        <Col xs={24} sm={8}><Card size="small"><Statistic title="Completed" value={statusCounts.completed} valueStyle={{ color: '#52c41a' }} /></Card></Col>
+        <Col xs={24} sm={8}><Card><Statistic title="Total Applications" value={statusCounts.total} prefix={<FileTextOutlined style={{ color: '#1976d2' }} />} /></Card></Col>
+        <Col xs={24} sm={8}><Card><Statistic title="In Progress" value={statusCounts.inProgress} valueStyle={{ color: '#faad14' }} /></Card></Col>
+        <Col xs={24} sm={8}><Card><Statistic title="Completed" value={statusCounts.completed} valueStyle={{ color: '#52c41a' }} /></Card></Col>
       </Row>
 
-      <Card size="small" style={{ marginBottom: '16px' }}>
+      <Card style={{ marginBottom: '16px' }}>
         <Row gutter={[16, 16]} align="middle">
           <Col xs={24} sm={12} md={8}><Search placeholder="Search applications..." prefix={<SearchOutlined />} value={searchText} onChange={(e) => setSearchText(e.target.value)} allowClear /></Col>
           <Col xs={24} sm={12} md={6}><Select style={{ width: '100%' }} value={statusFilter} onChange={setStatusFilter}><Option value="all">All Status</Option><Option value="Document Review">Document Review</Option><Option value="Application Submitted">Application Submitted</Option><Option value="University Review">University Review</Option><Option value="Enrolled">Enrolled</Option></Select></Col>
         </Row>
       </Card>
 
-      <Card size="small">
-        <Table columns={columns} dataSource={filteredApplications} loading={loading} rowKey="id" size="small" pagination={{ pageSize: 10, showSizeChanger: true, showQuickJumper: true }} scroll={{ x: 'max-content', y: tableScrollY }} />
+      <Card>
+        <Table columns={columns} dataSource={filteredApplications} loading={loading} rowKey="id" size="small" pagination={{ pageSize: 10, size: 'small', showSizeChanger: true, showQuickJumper: true }} scroll={{ x: 'max-content', y: tableScrollY }} />
       </Card>
     </div>
   );

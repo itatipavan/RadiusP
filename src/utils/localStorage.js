@@ -1,13 +1,13 @@
-// LocalStorage utility functions for RadiusF CRM
+// LocalStorage utility functions for OverSeas CRM
 
 const STORAGE_KEYS = {
-  USERS: 'radiusf_users',
-  STUDENTS: 'radiusf_students',
-  UNIVERSITIES: 'radiusf_universities',
-  APPLICATIONS: 'radiusf_applications',
-  EMPLOYEES: 'radiusf_employees',
-  CURRENT_USER: 'radiusf_current_user',
-  APP_INITIALIZED: 'radiusf_initialized'
+  USERS: 'overseas_users',
+  STUDENTS: 'overseas_students',
+  UNIVERSITIES: 'overseas_universities',
+  APPLICATIONS: 'overseas_applications',
+  EMPLOYEES: 'overseas_employees',
+  CURRENT_USER: 'overseas_current_user',
+  APP_INITIALIZED: 'overseas_initialized'
 };
 
 // Generic localStorage functions

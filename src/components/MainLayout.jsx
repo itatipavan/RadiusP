@@ -29,7 +29,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { useMessage } from '../contexts/MessageContext';
 
 const { Header, Sider, Content } = Layout;
-const { Title, Text } = Typography;
+const { Text } = Typography;
 
 const MainLayout = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -76,62 +76,26 @@ const MainLayout = () => {
     },
   ];
 
-  // Define menu items based on user permissions
   const getMenuItems = () => {
     const items = [];
 
     if (canAccessRoute('dashboard')) {
-      items.push({
-        key: '/dashboard',
-        icon: <DashboardOutlined />,
-        label: 'Dashboard',
-        onClick: () => navigate('/dashboard'),
-      });
+      items.push({ key: '/dashboard', icon: <DashboardOutlined />, label: 'Dashboard', onClick: () => navigate('/dashboard') });
     }
-
     if (canAccessRoute('students')) {
-      items.push({
-        key: '/students',
-        icon: <UserOutlined />,
-        label: 'Students',
-        onClick: () => navigate('/students'),
-      });
+      items.push({ key: '/students', icon: <UserOutlined />, label: 'Students', onClick: () => navigate('/students') });
     }
-
     if (canAccessRoute('applications')) {
-      items.push({
-        key: '/applications',
-        icon: <FileTextOutlined />,
-        label: 'Applications',
-        onClick: () => navigate('/applications'),
-      });
+      items.push({ key: '/applications', icon: <FileTextOutlined />, label: 'Applications', onClick: () => navigate('/applications') });
     }
-
     if (canAccessRoute('universities')) {
-      items.push({
-        key: '/universities',
-        icon: <BankOutlined />,
-        label: 'Universities',
-        onClick: () => navigate('/universities'),
-      });
+      items.push({ key: '/universities', icon: <BankOutlined />, label: 'Universities', onClick: () => navigate('/universities') });
     }
-
     if (canAccessRoute('employees')) {
-      items.push({
-        key: '/employees',
-        icon: <TeamOutlined />,
-        label: 'Employees',
-        onClick: () => navigate('/employees'),
-      });
+      items.push({ key: '/employees', icon: <TeamOutlined />, label: 'Employees', onClick: () => navigate('/employees') });
     }
-
     if (canAccessRoute('reports')) {
-      items.push({
-        key: '/reports',
-        icon: <BarChartOutlined />,
-        label: 'Reports',
-        onClick: () => navigate('/reports'),
-      });
+      items.push({ key: '/reports', icon: <BarChartOutlined />, label: 'Reports', onClick: () => navigate('/reports') });
     }
 
     return items;
@@ -141,11 +105,14 @@ const MainLayout = () => {
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
-      <Sider 
-        trigger={null} 
-        collapsible 
+      <Sider
+        trigger={null}
+        collapsible
         collapsed={collapsed}
         theme="dark"
+        breakpoint="lg"
+        collapsedWidth={0}
+        onBreakpoint={(broken) => setCollapsed(broken)}
         style={{
           overflow: 'auto',
           height: '100vh',
@@ -155,7 +122,6 @@ const MainLayout = () => {
           bottom: 0,
         }}
       >
-        {/* Logo */}
         <div
           style={{
             height: '64px',
@@ -184,7 +150,7 @@ const MainLayout = () => {
                 fontWeight: 'bold',
               }}
             >
-              RF
+              OS
             </div>
           ) : (
             <Space>
@@ -202,23 +168,15 @@ const MainLayout = () => {
                   fontWeight: 'bold',
                 }}
               >
-                RF
+                OS
               </div>
-              <span>RadiusF</span>
+              <span>OverSeas</span>
             </Space>
           )}
         </div>
 
-        {/* Navigation Menu */}
-        <Menu
-          theme="dark"
-          mode="inline"
-          selectedKeys={[selectedKey]}
-          items={getMenuItems()}
-          style={{ borderRight: 0 }}
-        />
+        <Menu theme="dark" mode="inline" selectedKeys={[selectedKey]} items={getMenuItems()} style={{ borderRight: 0 }} />
 
-        {/* User Info in Sidebar (when not collapsed) */}
         {!collapsed && (
           <div
             style={{
@@ -233,18 +191,11 @@ const MainLayout = () => {
           >
             <Space direction="vertical" size="small" style={{ width: '100%' }}>
               <Space>
-                <Avatar 
-                  style={{ backgroundColor: '#1976d2' }}
-                  icon={<UserOutlined />}
-                />
+                <Avatar style={{ backgroundColor: '#1976d2' }} icon={<UserOutlined />} />
                 <div>
-                  <Text strong style={{ color: 'white', fontSize: '14px' }}>
-                    {user?.name}
-                  </Text>
+                  <Text strong style={{ color: 'white', fontSize: '14px' }}>{user?.name}</Text>
                   <br />
-                  <Text style={{ color: '#8c8c8c', fontSize: '12px' }}>
-                    {getRoleDisplayName(user?.role)}
-                  </Text>
+                  <Text style={{ color: '#8c8c8c', fontSize: '12px' }}>{getRoleDisplayName(user?.role)}</Text>
                 </div>
               </Space>
             </Space>
@@ -252,11 +203,10 @@ const MainLayout = () => {
         )}
       </Sider>
 
-      <Layout style={{ marginLeft: collapsed ? 80 : 200, transition: 'margin-left 0.2s' }}>
-        {/* Header */}
+      <Layout style={{ marginLeft: collapsed ? 0 : 200, transition: 'margin-left 0.2s' }}>
         <Header
           style={{
-            padding: '0 24px',
+            padding: '0 12px',
             background: '#fff',
             display: 'flex',
             alignItems: 'center',
@@ -272,66 +222,33 @@ const MainLayout = () => {
               type="text"
               icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
               onClick={() => setCollapsed(!collapsed)}
-              style={{
-                fontSize: '16px',
-                width: 40,
-                height: 40,
-              }}
+              style={{ fontSize: '16px', width: 40, height: 40 }}
             />
             <Divider type="vertical" />
-            <Space>
+            <Space className="header-brand">
               <GlobalOutlined style={{ color: '#1976d2' }} />
-              <Text strong style={{ color: '#1976d2' }}>
-                Study Abroad CRM
-              </Text>
+              <Text strong style={{ color: '#1976d2' }}>OverSeas Study CRM</Text>
             </Space>
           </Space>
 
           <Space size="large">
-            {/* Notifications */}
             <Badge count={3} size="small">
-              <Button
-                type="text"
-                icon={<BellOutlined />}
-                onClick={() => messageApi.info('Notifications feature coming soon!')}
-                style={{ fontSize: '16px' }}
-              />
+              <Button type="text" icon={<BellOutlined />} onClick={() => messageApi.info('Notifications feature coming soon!')} style={{ fontSize: '16px' }} />
             </Badge>
-
-            {/* User Dropdown */}
-            <Dropdown
-              menu={{ items: userMenuItems }}
-              placement="bottomRight"
-              arrow
-            >
+            <Dropdown menu={{ items: userMenuItems }} placement="bottomRight" arrow>
               <Space style={{ cursor: 'pointer' }}>
-                <Avatar 
-                  style={{ backgroundColor: '#1976d2' }}
-                  icon={<UserOutlined />}
-                />
-                <div style={{ textAlign: 'left' }}>
-                  <Text strong style={{ fontSize: '14px' }}>
-                    {user?.name}
-                  </Text>
+                <Avatar style={{ backgroundColor: '#1976d2' }} icon={<UserOutlined />} />
+                <div className="header-user-meta">
+                  <Text strong style={{ fontSize: '14px' }}>{user?.name}</Text>
                   <br />
-                  <Text type="secondary" style={{ fontSize: '12px' }}>
-                    {getRoleDisplayName(user?.role)}
-                  </Text>
+                  <Text type="secondary" style={{ fontSize: '12px' }}>{getRoleDisplayName(user?.role)}</Text>
                 </div>
               </Space>
             </Dropdown>
           </Space>
         </Header>
 
-        {/* Main Content */}
-        <Content
-          style={{
-            padding: '24px',
-            minHeight: 'calc(100vh - 64px)',
-            background: '#f5f5f5',
-            overflow: 'initial',
-          }}
-        >
+        <Content style={{ padding: '12px', minHeight: 'calc(100vh - 64px)', background: '#f5f5f5', overflow: 'initial' }}>
           <div style={{ background: '#fff', borderRadius: '8px', overflow: 'hidden' }}>
             <Outlet />
           </div>

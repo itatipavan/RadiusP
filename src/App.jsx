@@ -118,7 +118,7 @@ const AppRoutes = () => {
 
 const App = () => {
   return (
-    <ConfigProvider theme={theme} componentSize="small">
+    <ConfigProvider theme={theme}>
       <AntApp>
         <MessageProvider>
           <AuthProvider>

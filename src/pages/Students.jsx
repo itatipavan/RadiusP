@@ -226,13 +226,13 @@ const Students = () => {
       </div>
 
       <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
-        <Col xs={12} sm={6}><Card size="small"><Statistic title="Total Students" value={statusCounts.total} prefix={<UserOutlined style={{ color: '#1976d2' }} />} /></Card></Col>
-        <Col xs={12} sm={6}><Card size="small"><Statistic title="New Inquiries" value={statusCounts.inquiry} valueStyle={{ color: '#faad14' }} /></Card></Col>
-        <Col xs={12} sm={6}><Card size="small"><Statistic title="Applications" value={statusCounts.applied} valueStyle={{ color: '#1890ff' }} /></Card></Col>
-        <Col xs={12} sm={6}><Card size="small"><Statistic title="Enrolled" value={statusCounts.enrolled} valueStyle={{ color: '#52c41a' }} /></Card></Col>
+        <Col xs={12} sm={6}><Card><Statistic title="Total Students" value={statusCounts.total} prefix={<UserOutlined style={{ color: '#1976d2' }} />} /></Card></Col>
+        <Col xs={12} sm={6}><Card><Statistic title="New Inquiries" value={statusCounts.inquiry} valueStyle={{ color: '#faad14' }} /></Card></Col>
+        <Col xs={12} sm={6}><Card><Statistic title="Applications" value={statusCounts.applied} valueStyle={{ color: '#1890ff' }} /></Card></Col>
+        <Col xs={12} sm={6}><Card><Statistic title="Enrolled" value={statusCounts.enrolled} valueStyle={{ color: '#52c41a' }} /></Card></Col>
       </Row>
 
-      <Card size="small" style={{ marginBottom: '16px' }}>
+      <Card style={{ marginBottom: '16px' }}>
         <Row gutter={[16, 16]} align="middle">
           <Col xs={24} sm={12} md={8}><Search placeholder="Search students..." prefix={<SearchOutlined />} value={searchText} onChange={(e) => setSearchText(e.target.value)} allowClear /></Col>
           <Col xs={24} sm={12} md={6}><Select style={{ width: '100%' }} value={statusFilter} onChange={setStatusFilter} prefix={<FilterOutlined />}><Option value="all">All Status</Option><Option value="Inquiry">Inquiry</Option><Option value="Document Review">Document Review</Option><Option value="Applied">Applied</Option><Option value="Visa Approved">Visa Approved</Option><Option value="Enrolled">Enrolled</Option></Select></Col>
@@ -240,8 +240,8 @@ const Students = () => {
         </Row>
       </Card>
 
-      <Card size="small">
-        <Table columns={columns} dataSource={filteredStudents} loading={loading} rowKey="id" size="small" pagination={{ total: filteredStudents.length, pageSize: 10, showSizeChanger: true, showQuickJumper: true, showTotal: (total, range) => `${range[0]}-${range[1]} of ${total} students`, }} scroll={{ x: 'max-content', y: tableScrollY }} />
+      <Card>
+        <Table columns={columns} dataSource={filteredStudents} loading={loading} rowKey="id" size="small" pagination={{ total: filteredStudents.length, pageSize: 10, size: 'small', showSizeChanger: true, showQuickJumper: true, showTotal: (total, range) => `${range[0]}-${range[1]} of ${total} students`, }} scroll={{ x: 'max-content', y: tableScrollY }} />
       </Card>
 
       <Modal title="Add New Student" open={isAddModalVisible} onCancel={() => { setIsAddModalVisible(false); form.resetFields(); }} footer={[<Button key="cancel" onClick={() => { setIsAddModalVisible(false); form.resetFields(); }}>Cancel</Button>, <Button key="submit" type="primary" onClick={() => form.submit()}>Add Student</Button>]} width={800} destroyOnClose>

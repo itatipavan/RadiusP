@@ -159,17 +159,17 @@ const Reports = () => {
       {/* Performance Metrics */}
       <Row gutter={[24, 24]} style={{ marginBottom: '32px' }}>
         <Col xs={24} lg={12}>
-          <Card title="Conversion Funnel" loading={loading}>
+          <Card title="Conversion Funnel" loading={loading} size='small'>
             <Space direction="vertical" style={{ width: '100%' }} size="large">
               <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
                   <Text>Total Inquiries</Text>
                   <Text strong>{reportData.totalStudents}</Text>
                 </div>
                 <Progress percent={100} strokeColor="#1976d2" showInfo={false} />
               </div>
               <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
                   <Text>Applications Submitted</Text>
                   <Text strong>{reportData.totalApplications}</Text>
                 </div>
@@ -180,7 +180,7 @@ const Reports = () => {
                 />
               </div>
               <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
                   <Text>Visa Approved</Text>
                   <Text strong>{reportData.visaApprovedStudents}</Text>
                 </div>
@@ -191,7 +191,7 @@ const Reports = () => {
                 />
               </div>
               <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
                   <Text>Enrolled</Text>
                   <Text strong>{reportData.enrolledStudents}</Text>
                 </div>
@@ -205,7 +205,7 @@ const Reports = () => {
           </Card>
         </Col>
         <Col xs={24} lg={12}>
-          <Card title="Monthly Trends" loading={loading}>
+          <Card title="Monthly Trends" loading={loading} size='small'>
             <List
               size="small"
               dataSource={Object.entries(reportData.monthlyData || {})}
@@ -234,7 +234,7 @@ const Reports = () => {
       {/* Detailed Analytics */}
       <Row gutter={[24, 24]}>
         <Col xs={24} lg={12}>
-          <Card title="Top Destinations" loading={loading}>
+          <Card title="Top Destinations" loading={loading} size='small'>
             <List
               dataSource={getTopCountries()}
               renderItem={item => (
@@ -257,7 +257,7 @@ const Reports = () => {
           </Card>
         </Col>
         <Col xs={24} lg={12}>
-          <Card title="Popular Programs" loading={loading}>
+          <Card title="Popular Programs" loading={loading} size='small'>
             <List
               dataSource={getTopPrograms()}
               renderItem={item => (

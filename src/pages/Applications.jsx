@@ -178,28 +178,19 @@ const Applications = () => {
   };
 
   return (
-    <div style={{ padding: "16px" }}>
-      <div
-        style={{
-          marginBottom: "24px",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <div>
-          <Title level={2} style={{ margin: 0 }}>
+    <Card style={{ margin: "-20px" }}
+      title={
+        <>
+          <Title level={4} style={{ margin: 0 }}>
             Application Tracking
           </Title>
           <Text type="secondary">
             Monitor student applications and track progress
           </Text>
-        </div>
-        <Button type="primary" icon={<PlusOutlined />}>
-          New Application
-        </Button>
-      </div>
-
+        </>
+      }
+      extra={<Button type="primary" icon={<PlusOutlined />} />}
+    >
       <Row gutter={[16, 16]} style={{ marginBottom: "24px" }}>
         <Col xs={24} sm={8}>
           <Card>
@@ -210,7 +201,7 @@ const Applications = () => {
             />
           </Card>
         </Col>
-        <Col xs={24} sm={8}>
+        <Col xs={12} sm={8}>
           <Card>
             <Statistic
               title="In Progress"
@@ -219,7 +210,7 @@ const Applications = () => {
             />
           </Card>
         </Col>
-        <Col xs={24} sm={8}>
+        <Col xs={12} sm={8}>
           <Card>
             <Statistic
               title="Completed"
@@ -272,10 +263,10 @@ const Applications = () => {
             showSizeChanger: true,
             showQuickJumper: true,
           }}
-          scroll={{ x: "max-content", y: 400 }}
+          scroll={{ x: "max-content" }}
         />
       </Card>
-    </div>
+    </Card>
   );
 };
 

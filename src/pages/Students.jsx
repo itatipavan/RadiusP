@@ -638,34 +638,28 @@ const Students = () => {
   );
 
   return (
-    <div style={{ padding: "16px" }}>
-      <div
-        style={{
-          marginBottom: "24px",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <div>
+    <Card
+      title={
+        <>
           <Title level={2} style={{ margin: 0 }}>
             Student Management
           </Title>
           <Text type="secondary">
             Manage student profiles, track applications, and monitor progress
           </Text>
-        </div>
-        {hasPermission("edit_students") && (
+        </>
+      }
+      extra={
+        hasPermission("edit_students") && (
           <Button
             type="primary"
             icon={<PlusOutlined />}
             onClick={() => setIsAddModalVisible(true)}
-          >
-            Add New Student
-          </Button>
-        )}
-      </div>
-
+          />
+        )
+      }
+      style={{ margin: "-20px" }}
+    >
       <Row gutter={[16, 16]} style={{ marginBottom: "24px" }}>
         <Col xs={12} sm={6}>
           <Card>
@@ -781,8 +775,9 @@ const Students = () => {
             Add Student
           </Button>,
         ]}
-        width={800}
-        destroyOnClose
+        width={900}
+        destroyOnHidden
+        centered
       >
         <StudentForm onFinish={handleAddStudent} />
       </Modal>
@@ -810,8 +805,9 @@ const Students = () => {
             Update Student
           </Button>,
         ]}
-        width={800}
-        destroyOnClose
+        width={900}
+        destroyOnHidden
+        centered
       >
         <StudentForm onFinish={handleEditStudent} />
       </Modal>
@@ -836,7 +832,7 @@ const Students = () => {
           </Form.Item>
         </Form>
       </Modal>
-    </div>
+    </Card>
   );
 };
 

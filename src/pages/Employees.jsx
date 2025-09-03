@@ -118,30 +118,24 @@ const Employees = () => {
   ).length;
 
   return (
-    <div style={{ padding: "16px" }}>
-      <div
-        style={{
-          marginBottom: "24px",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <div>
-          <Title level={2} style={{ margin: 0 }}>
+    <Card
+      style={{ margin: "-20px" }}
+      title={
+        <>
+          <Title level={3} style={{ margin: 0 }}>
             Employee Management
           </Title>
           <Text type="secondary">
             Manage team members and their performance
           </Text>
-        </div>
-        <Button type="primary" icon={<PlusOutlined />}>
-          Add Employee
-        </Button>
-      </div>
-
+        </>
+      }
+      extra={
+        <Button type="primary" icon={<PlusOutlined />}/>
+      }
+    >
       <Row gutter={[16, 16]} style={{ marginBottom: "24px" }}>
-        <Col xs={24} sm={8}>
+        <Col xs={12} sm={8}>
           <Card>
             <Statistic
               title="Total Employees"
@@ -150,7 +144,7 @@ const Employees = () => {
             />
           </Card>
         </Col>
-        <Col xs={24} sm={8}>
+        <Col xs={12} sm={8}>
           <Card>
             <Statistic
               title="Active Counselors"
@@ -159,7 +153,7 @@ const Employees = () => {
             />
           </Card>
         </Col>
-        <Col xs={24} sm={8}>
+        <Col xs={12} sm={8}>
           <Card>
             <Statistic
               title="Departments"
@@ -194,7 +188,7 @@ const Employees = () => {
           scroll={{ x: "max-content", y: 400 }}
         />
       </Card>
-    </div>
+    </Card>
   );
 };
 

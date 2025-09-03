@@ -126,30 +126,26 @@ const Universities = () => {
   ).length;
 
   return (
-    <div style={{ padding: "16px" }}>
-      <div
-        style={{
-          marginBottom: "24px",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <div>
-          <Title level={2} style={{ margin: 0 }}>
+    <Card
+      title={
+        <>
+          <Title level={3} style={{ margin: 0 }}>
             Universities
           </Title>
           <Text type="secondary">
             Explore partner universities and programs
           </Text>
-        </div>
+        </>
+      }
+      extra={
         <Button type="primary" icon={<PlusOutlined />}>
           Add University
         </Button>
-      </div>
-
+      }
+      style={{ margin: "-20px" }}
+    >
       <Row gutter={[16, 16]} style={{ marginBottom: "24px" }}>
-        <Col xs={24} sm={8}>
+        <Col xs={24} md={8}>
           <Card>
             <Statistic
               title="Total Universities"
@@ -158,7 +154,7 @@ const Universities = () => {
             />
           </Card>
         </Col>
-        <Col xs={24} sm={8}>
+        <Col xs={12} md={8}>
           <Card>
             <Statistic
               title="Partner Universities"
@@ -167,7 +163,7 @@ const Universities = () => {
             />
           </Card>
         </Col>
-        <Col xs={24} sm={8}>
+        <Col xs={12} md={8}>
           <Card>
             <Statistic
               title="Countries"
@@ -217,7 +213,7 @@ const Universities = () => {
           scroll={{ x: "max-content", y: 300 }}
         />
       </Card>
-    </div>
+    </Card>
   );
 };
 

@@ -148,7 +148,6 @@ const Dashboard = () => {
         <Progress
           percent={(record.currentStep / record.totalSteps) * 100}
           size="small"
-          showInfo={false}
           strokeColor="#1976d2"
         />
       ),
@@ -157,17 +156,15 @@ const Dashboard = () => {
       title: "Action",
       key: "action",
       render: () => (
-        <Button type="link" icon={<EyeOutlined />} size="small">
-          View
-        </Button>
+        <Button type="link" icon={<EyeOutlined />} size="small"/>
       ),
     },
   ];
 
   return (
-    <Card style={{ padding: "2px" }}>
-      <div style={{ marginBottom: "2px" }}>
-        <Title level={2} style={{ margin: 0 }}>
+    <Card style={{ margin: "-20px" }}>
+      <div style={{ marginBottom: "12px" }}>
+        <Title level={3} style={{ margin: 0 }}>
           Welcome back, {user?.name}! 👋
         </Title>
         <Text type="secondary" style={{ fontSize: "16px" }}>
@@ -176,8 +173,8 @@ const Dashboard = () => {
         </Text>
       </div>
 
-      <Row gutter={[24, 24]} style={{ marginBottom: "32px" }}>
-        <Col xs={24} sm={12} lg={6}>
+      <Row gutter={[16, 16]} style={{ marginBottom: "32px" }}>
+        <Col xs={12} lg={6}>
           <Card size="small">
             <Statistic
               title="Total Students"
@@ -192,7 +189,7 @@ const Dashboard = () => {
             </div>
           </Card>
         </Col>
-        <Col xs={24} sm={12} lg={6}>
+        <Col xs={12} lg={6}>
           <Card size="small">
             <Statistic
               title="Active Applications"
@@ -207,7 +204,7 @@ const Dashboard = () => {
             </div>
           </Card>
         </Col>
-        <Col xs={24} sm={12} lg={6}>
+        <Col xs={12} lg={6}>
           <Card size="small">
             <Statistic
               title="Success Rate"
@@ -223,7 +220,7 @@ const Dashboard = () => {
             </div>
           </Card>
         </Col>
-        <Col xs={24} sm={12} lg={6}>
+        <Col xs={12} lg={6}>
           <Card size="small">
             <Statistic
               title="Partner Universities"
@@ -262,11 +259,10 @@ const Dashboard = () => {
                 <Progress
                   percent={
                     stats.totalStudents
-                      ? (stats.newInquiries / stats.totalStudents) * 100
+                      ? ((stats.newInquiries / stats.totalStudents) * 100).toFixed(1)
                       : 0
                   }
                   strokeColor="#faad14"
-                  showInfo={false}
                 />
               </div>
               <div>
@@ -283,11 +279,10 @@ const Dashboard = () => {
                 <Progress
                   percent={
                     stats.totalStudents
-                      ? (stats.visaApproved / stats.totalStudents) * 100
+                      ? ((stats.visaApproved / stats.totalStudents) * 100).toFixed(1)
                       : 0
                   }
                   strokeColor="#52c41a"
-                  showInfo={false}
                 />
               </div>
               <div>
@@ -304,11 +299,10 @@ const Dashboard = () => {
                 <Progress
                   percent={
                     stats.totalStudents
-                      ? (stats.enrolledStudents / stats.totalStudents) * 100
+                      ? ((stats.enrolledStudents / stats.totalStudents) * 100).toFixed(1)
                       : 0
                   }
                   strokeColor="#1976d2"
-                  showInfo={false}
                 />
               </div>
             </Space>
@@ -374,6 +368,7 @@ const Dashboard = () => {
               pagination={false}
               size="small"
               loading={loading}
+              scroll={{ x: 'max-content' }}
               locale={{ emptyText: "No recent applications" }}
             />
           </Card>

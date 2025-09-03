@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import { AuthProvider, useAuth } from "./contexts/AuthContext";
 import { MessageProvider } from "./contexts/MessageContext";
+import "./App.css";
 
 // Import pages
 import Login from "./pages/Login";

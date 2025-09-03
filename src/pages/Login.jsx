@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Input, Button, Card, Typography, Space } from "antd";
 import { UserOutlined, LockOutlined, LoginOutlined } from "@ant-design/icons";
 import { useAuth } from "../contexts/AuthContext";
@@ -9,10 +9,19 @@ const { Title, Text, Paragraph } = Typography;
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const { login } = useAuth();
   const messageApi = useMessage();
   const navigate = useNavigate();
-  const [form] = Form.useForm(); // ✅ Create form instance
+  const [form] = Form.useForm();
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const onFinish = async (values) => {
     setLoading(true);
@@ -33,12 +42,11 @@ const Login = () => {
 
   const fillDemoCredentials = (role) => {
     const credentials = {
-      admin: { email: "admin@overseas.com", password: "admin123" },
-      counselor: { email: "neha.verma@overseas.com", password: "counselor123" },
-      employee: { email: "amit.kumar@overseas.com", password: "employee123" },
+      admin: { email: "admin@os.in", password: "admin123" },
+      counselor: { email: "neha.verma@os.in", password: "counselor123" },
+      employee: { email: "amit.kumar@os.in", password: "employee123" },
     };
-
-    form.setFieldsValue(credentials[role]); // ✅ This updates the inputs correctly
+    form.setFieldsValue(credentials[role]);
   };
 
   return (
@@ -59,62 +67,70 @@ const Login = () => {
           display: "flex",
           gap: "40px",
           alignItems: "center",
+          flexDirection: isMobile ? "column" : "row",
         }}
       >
-        {/* Left side text */}
+        {/* Left side text (hidden on mobile) */}
+        {!isMobile && (
+          <div style={{ flex: 1, color: "white" }}>
+            <div style={{ marginBottom: "40px" }}>
+              <div
+                style={{
+                  width: 80,
+                  height: 80,
+                  background: "rgba(255, 255, 255, 0.2)",
+                  borderRadius: "20px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  color: "white",
+                  fontWeight: "bold",
+                  fontSize: "32px",
+                  marginBottom: "24px",
+                  backdropFilter: "blur(10px)",
+                }}
+              >
+                OS
+              </div>
+              <Title
+                level={1}
+                style={{
+                  color: "white",
+                  marginBottom: "16px",
+                  fontSize: "48px",
+                }}
+              >
+                OverSeas CRM
+              </Title>
+              <Paragraph
+                style={{
+                  color: "rgba(255, 255, 255, 0.8)",
+                  fontSize: "18px",
+                  lineHeight: "1.6",
+                }}
+              >
+                Streamline your consultancy operations with our comprehensive
+                CRM solution. Manage students, track applications, and grow your
+                study abroad business efficiently.
+              </Paragraph>
+            </div>
+          </div>
+        )}
+
+        {/* Right side card (full width on mobile) */}
         <div
           style={{
             flex: 1,
-            color: "white",
-            display: window.innerWidth >= 768 ? "block" : "none",
+            maxWidth: isMobile ? "100%" : "480px",
+            width: "100%",
           }}
         >
-          <div style={{ marginBottom: "40px" }}>
-            <div
-              style={{
-                width: 80,
-                height: 80,
-                background: "rgba(255, 255, 255, 0.2)",
-                borderRadius: "20px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "white",
-                fontWeight: "bold",
-                fontSize: "32px",
-                marginBottom: "24px",
-                backdropFilter: "blur(10px)",
-              }}
-            >
-              OS
-            </div>
-            <Title
-              level={1}
-              style={{ color: "white", marginBottom: "16px", fontSize: "48px" }}
-            >
-              OverSeas CRM
-            </Title>
-            <Paragraph
-              style={{
-                color: "rgba(255, 255, 255, 0.8)",
-                fontSize: "18px",
-                lineHeight: "1.6",
-              }}
-            >
-              Streamline your consultancy operations with our comprehensive CRM
-              solution. Manage students, track applications, and grow your study
-              abroad business efficiently.
-            </Paragraph>
-          </div>
-        </div>
-
-        {/* Right side card */}
-        <div style={{ flex: 1, maxWidth: "480px" }}>
           <Card
             style={{
               borderRadius: "16px",
               boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)",
               border: "none",
+              width: "100%",
             }}
             styles={{ body: { padding: "40px" } }}
           >
@@ -130,7 +146,6 @@ const Login = () => {
               </Text>
             </div>
 
-            {/* ✅ Attach form instance */}
             <Form
               form={form}
               name="login"
@@ -188,8 +203,8 @@ const Login = () => {
             {/* Demo Credentials */}
             <div
               style={{
-                marginTop: "24px",
-                padding: "16px",
+                marginTop: "-12px -10px",
+                padding: "-12px -10px",
                 background: "#f8f9fa",
                 borderRadius: "8px",
               }}
@@ -212,7 +227,7 @@ const Login = () => {
                   style={{ padding: 0, height: "auto", textAlign: "left" }}
                 >
                   <Text style={{ fontSize: "13px" }}>
-                    <strong>Admin:</strong> admin@overseas.com / admin123
+                    <strong>Admin:</strong> admin@os.in / admin123
                   </Text>
                 </Button>
                 <Button
@@ -222,8 +237,7 @@ const Login = () => {
                   style={{ padding: 0, height: "auto", textAlign: "left" }}
                 >
                   <Text style={{ fontSize: "13px" }}>
-                    <strong>Counselor:</strong> neha.verma@overseas.com /
-                    counselor123
+                    <strong>Counselor:</strong> neha.verma@os.in / counselor123
                   </Text>
                 </Button>
                 <Button
@@ -233,8 +247,7 @@ const Login = () => {
                   style={{ padding: 0, height: "auto", textAlign: "left" }}
                 >
                   <Text style={{ fontSize: "13px" }}>
-                    <strong>Employee:</strong> amit.kumar@overseas.com /
-                    employee123
+                    <strong>Employee:</strong> amit.kumar@os.in / employee123
                   </Text>
                 </Button>
               </Space>

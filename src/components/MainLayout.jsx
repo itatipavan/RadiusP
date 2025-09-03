@@ -190,11 +190,10 @@ const MainLayout = () => {
             }}
           >
             <Space direction="vertical" size="small" style={{ width: '100%' }}>
-              <Space>
+              <Space align="center">
                 <Avatar style={{ backgroundColor: '#1976d2' }} icon={<UserOutlined />} />
-                <div>
+                <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1 }}>
                   <Text strong style={{ color: 'white', fontSize: '14px' }}>{user?.name}</Text>
-                  <br />
                   <Text style={{ color: '#8c8c8c', fontSize: '12px' }}>{getRoleDisplayName(user?.role)}</Text>
                 </div>
               </Space>
@@ -235,12 +234,11 @@ const MainLayout = () => {
             <Badge count={3} size="small">
               <Button type="text" icon={<BellOutlined />} onClick={() => messageApi.info('Notifications feature coming soon!')} style={{ fontSize: '16px' }} />
             </Badge>
-            <Dropdown menu={{ items: userMenuItems }} placement="bottomRight" arrow>
-              <Space style={{ cursor: 'pointer' }}>
+            <Dropdown menu={{ items: userMenuItems }} placement="bottomRight" arrow={{ pointAtCenter: true }} trigger={["click"]} overlayStyle={{ minWidth: 200 }}>
+              <Space style={{ cursor: 'pointer', alignItems: 'center' }}>
                 <Avatar style={{ backgroundColor: '#1976d2' }} icon={<UserOutlined />} />
-                <div className="header-user-meta">
+                <div className="header-user-meta" style={{ display: 'flex', flexDirection: 'column', lineHeight: 1 }}>
                   <Text strong style={{ fontSize: '14px' }}>{user?.name}</Text>
-                  <br />
                   <Text type="secondary" style={{ fontSize: '12px' }}>{getRoleDisplayName(user?.role)}</Text>
                 </div>
               </Space>
@@ -248,7 +246,7 @@ const MainLayout = () => {
           </Space>
         </Header>
 
-        <Content style={{ padding: '12px', minHeight: 'calc(100vh - 64px)', background: '#f5f5f5', overflow: 'initial' }}>
+        <Content style={{ padding: '24px', minHeight: 'calc(100vh - 64px)', background: '#f5f5f5', overflow: 'initial' }}>
           <div style={{ background: '#fff', borderRadius: '8px', overflow: 'hidden' }}>
             <Outlet />
           </div>

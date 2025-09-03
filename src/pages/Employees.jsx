@@ -57,17 +57,17 @@ const Employees = () => {
       </div>
 
       <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
-        <Col xs={24} sm={8}><Card size="small"><Statistic title="Total Employees" value={employees.length} prefix={<TeamOutlined style={{ color: '#1976d2' }} />} /></Card></Col>
-        <Col xs={24} sm={8}><Card size="small"><Statistic title="Active Counselors" value={activeCounselors} valueStyle={{ color: '#52c41a' }} /></Card></Col>
-        <Col xs={24} sm={8}><Card size="small"><Statistic title="Departments" value={[...new Set(employees.map(emp => emp.department))].length} prefix={<UserOutlined style={{ color: '#722ed1' }} />} /></Card></Col>
+        <Col xs={24} sm={8}><Card><Statistic title="Total Employees" value={employees.length} prefix={<TeamOutlined style={{ color: '#1976d2' }} />} /></Card></Col>
+        <Col xs={24} sm={8}><Card><Statistic title="Active Counselors" value={activeCounselors} valueStyle={{ color: '#52c41a' }} /></Card></Col>
+        <Col xs={24} sm={8}><Card><Statistic title="Departments" value={[...new Set(employees.map(emp => emp.department))].length} prefix={<UserOutlined style={{ color: '#722ed1' }} />} /></Card></Col>
       </Row>
 
-      <Card size="small" style={{ marginBottom: '16px' }}>
+      <Card style={{ marginBottom: '16px' }}>
         <Search placeholder="Search employees..." prefix={<SearchOutlined />} value={searchText} onChange={(e) => setSearchText(e.target.value)} allowClear style={{ width: 300 }} />
       </Card>
 
-      <Card size="small">
-        <Table columns={columns} dataSource={filteredEmployees} loading={loading} rowKey="id" pagination={{ pageSize: 10 }} size="small" scroll={{ x: 'max-content', y: tableScrollY }} />
+      <Card>
+        <Table columns={columns} dataSource={filteredEmployees} loading={loading} rowKey="id" pagination={{ pageSize: 10, size: 'small' }} size="small" scroll={{ x: 'max-content', y: tableScrollY }} />
       </Card>
     </div>
   );

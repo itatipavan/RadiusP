@@ -61,20 +61,20 @@ const Universities = () => {
       </div>
 
       <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
-        <Col xs={24} sm={8}><Card size="small"><Statistic title="Total Universities" value={universities.length} prefix={<BankOutlined style={{ color: '#1976d2' }} />} /></Card></Col>
-        <Col xs={24} sm={8}><Card size="small"><Statistic title="Partner Universities" value={partnerUniversities} valueStyle={{ color: '#52c41a' }} /></Card></Col>
-        <Col xs={24} sm={8}><Card size="small"><Statistic title="Countries" value={countries.length} prefix={<GlobalOutlined style={{ color: '#722ed1' }} />} /></Card></Col>
+        <Col xs={24} sm={8}><Card><Statistic title="Total Universities" value={universities.length} prefix={<BankOutlined style={{ color: '#1976d2' }} />} /></Card></Col>
+        <Col xs={24} sm={8}><Card><Statistic title="Partner Universities" value={partnerUniversities} valueStyle={{ color: '#52c41a' }} /></Card></Col>
+        <Col xs={24} sm={8}><Card><Statistic title="Countries" value={countries.length} prefix={<GlobalOutlined style={{ color: '#722ed1' }} />} /></Card></Col>
       </Row>
 
-      <Card size="small" style={{ marginBottom: '16px' }}>
+      <Card style={{ marginBottom: '16px' }}>
         <Row gutter={[16, 16]} align="middle">
           <Col xs={24} sm={12} md={8}><Search placeholder="Search universities..." prefix={<SearchOutlined />} value={searchText} onChange={(e) => setSearchText(e.target.value)} allowClear /></Col>
           <Col xs={24} sm={12} md={6}><Select style={{ width: '100%' }} value={countryFilter} onChange={setCountryFilter}><Option value="all">All Countries</Option>{countries.map(country => (<Option key={country} value={country}>{country}</Option>))}</Select></Col>
         </Row>
       </Card>
 
-      <Card size="small">
-        <Table columns={columns} dataSource={filteredUniversities} loading={loading} rowKey="id" pagination={{ pageSize: 10, showSizeChanger: true }} size="small" scroll={{ x: 'max-content', y: tableScrollY }} />
+      <Card>
+        <Table columns={columns} dataSource={filteredUniversities} loading={loading} rowKey="id" pagination={{ pageSize: 10, size: 'small', showSizeChanger: true }} size="small" scroll={{ x: 'max-content', y: tableScrollY }} />
       </Card>
     </div>
   );

@@ -4,6 +4,7 @@ import { UserOutlined, LockOutlined, LoginOutlined } from "@ant-design/icons";
 import { useAuth } from "../contexts/AuthContext";
 import { useMessage } from "../contexts/MessageContext";
 import { useNavigate } from "react-router-dom";
+import SplitText from "../components/SplitText";
 
 const { Title, Text, Paragraph } = Typography;
 
@@ -92,7 +93,7 @@ const Login = () => {
               >
                 OS
               </div>
-              <Title
+              {/* <Title
                 level={1}
                 style={{
                   color: "white",
@@ -101,7 +102,24 @@ const Login = () => {
                 }}
               >
                 OverSeas CRM
-              </Title>
+              </Title> */}
+              <SplitText
+                text="OverSeas CRM"
+                style={{
+                  color: "white",
+                  marginBottom: "16px",
+                  fontSize: "48px",
+                }}
+                delay={100}
+                duration={0.6}
+                ease="power3.out"
+                splitType="chars"
+                from={{ opacity: 0, y: 40 }}
+                to={{ opacity: 1, y: 0 }}
+                threshold={0.1}
+                rootMargin="-100px"
+                textAlign="center"
+              />
               <Paragraph
                 style={{
                   color: "rgba(255, 255, 255, 0.8)",

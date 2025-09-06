@@ -1,7 +1,7 @@
 import React from "react";
 import { ConfigProvider, App as AntApp } from "antd";
 import {
-  HashRouter as Router,
+  BrowserRouter as Router,
   Routes,
   Route,
   Navigate,

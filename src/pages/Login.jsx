@@ -29,7 +29,7 @@ const Login = () => {
     try {
       const result = await login(values);
       if (result.success) {
-        messageApi.success("Login successful! Welcome to OverSeas CRM");
+        messageApi.success("Login successful! Welcome to Radius OverSeas");
         navigate("/dashboard");
       } else {
         messageApi.error(result.error || "Login failed. Please try again.");
@@ -93,18 +93,8 @@ const Login = () => {
               >
                 OS
               </div>
-              {/* <Title
-                level={1}
-                style={{
-                  color: "white",
-                  marginBottom: "16px",
-                  fontSize: "48px",
-                }}
-              >
-                OverSeas CRM
-              </Title> */}
               <SplitText
-                text="OverSeas CRM"
+                text="Radius OverSeas"
                 style={{
                   color: "white",
                   marginBottom: "16px",
@@ -128,7 +118,7 @@ const Login = () => {
                 }}
               >
                 Streamline your consultancy operations with our comprehensive
-                CRM solution. Manage students, track applications, and grow your
+                solution. Manage students, track applications, and grow your
                 study abroad business efficiently.
               </Paragraph>
             </div>
@@ -160,7 +150,7 @@ const Login = () => {
                 Welcome Back
               </Title>
               <Text type="secondary" style={{ fontSize: "16px" }}>
-                Sign in to your OverSeas CRM account
+                Sign in to your Radius OverSeas account
               </Text>
             </div>
 

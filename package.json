@@ -1,7 +1,7 @@
 {
-  "name": "radiusf-crm",
+  "name": "radius-overseas",
   "version": "1.0.0",
-  "description": "Study Abroad CRM - Frontend Only with LocalStorage",
+  "description": "Study Abroad - Frontend Only with LocalStorage",
   "type": "module",
   "scripts": {
     "dev": "vite",

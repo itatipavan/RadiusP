@@ -1,4 +1,4 @@
-// Mock data for OverSeas CRM system
+// Mock data for Radius OverSeas system
 
 import { v4 as uuidv4 } from 'uuid';
 import { storage, userStorage, studentStorage, universityStorage, applicationStorage, employeeStorage } from '../utils/localStorage.js';

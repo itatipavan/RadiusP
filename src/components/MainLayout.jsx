@@ -125,6 +125,18 @@ const MainLayout = () => {
         icon: <BarChartOutlined />,
         label: "Reports",
       });
+    if (canAccessRoute("walkin"))
+      items.push({ key: "/walkin", icon: <MenuOutlined />, label: "Walk-in" });
+    if (canAccessRoute("assignments"))
+      items.push({ key: "/assignments", icon: <TeamOutlined />, label: "Assignments" });
+    if (canAccessRoute("instructor"))
+      items.push({ key: "/instructor", icon: <UserOutlined />, label: "Instructor" });
+    if (canAccessRoute("finance"))
+      items.push({ key: "/finance", icon: <FileTextOutlined />, label: "Finance" });
+    if (canAccessRoute("pay_details"))
+      items.push({ key: "/pay-details", icon: <SettingOutlined />, label: "Pay Details" });
+    if (canAccessRoute("paysheets"))
+      items.push({ key: "/paysheets", icon: <FileTextOutlined />, label: "Paysheets" });
 
     return items;
   };

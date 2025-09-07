@@ -55,12 +55,27 @@ export const mockEmployees = [
 export const initializeData = () => {
   if (!storage.get('overseas_initialized')) {
     userStorage.setUsers(mockUsers);
-    studentStorage.setStudents(mockStudents);
+    // backfill student extras
+    const seeded = mockStudents.map(s => ({ remarkHistory: [], instructorStatus: null, supportAssigneeId: s.supportAssigneeId || null, ...s }));
+    studentStorage.setStudents(seeded);
     universityStorage.setUniversities(mockUniversities);
     applicationStorage.setApplications(mockApplications);
     employeeStorage.setEmployees(mockEmployees);
     storage.set('overseas_initialized', true);
     return true;
   }
+  // migrate: ensure new roles exist
+  const existing = userStorage.getUsers();
+  const emails = new Set(existing.map(u => u.email));
+  const toAdd = mockUsers.filter(u => !emails.has(u.email));
+  if (toAdd.length) userStorage.setUsers([...existing, ...toAdd]);
+  // migrate: backfill student fields
+  const students = studentStorage.getStudents().map(s => ({
+    remarkHistory: Array.isArray(s.remarkHistory) ? s.remarkHistory : [],
+    instructorStatus: typeof s.instructorStatus === 'string' || s.instructorStatus === null ? s.instructorStatus : null,
+    supportAssigneeId: s.supportAssigneeId || null,
+    ...s
+  }));
+  studentStorage.setStudents(students);
   return false;
 };

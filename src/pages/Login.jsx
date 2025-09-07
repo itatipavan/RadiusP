@@ -29,7 +29,7 @@ const Login = () => {
     try {
       const result = await login(values);
       if (result.success) {
-        messageApi.success("Login successful! Welcome to Radius OverSeas");
+        messageApi.success("Login successful! Welcome to OverSeas CRM");
         navigate("/dashboard");
       } else {
         messageApi.error(result.error || "Login failed. Please try again.");
@@ -43,7 +43,14 @@ const Login = () => {
 
   const fillDemoCredentials = (role) => {
     const credentials = {
+      super_user: { email: "super@os.in", password: "super123" },
       admin: { email: "admin@os.in", password: "admin123" },
+      ceo: { email: "ceo@os.in", password: "ceo123" },
+      head: { email: "head@os.in", password: "head123" },
+      accountant: { email: "account@os.in", password: "account123" },
+      customer_support: { email: "support1@os.in", password: "support123" },
+      receptionist: { email: "reception@os.in", password: "reception123" },
+      instructor: { email: "instructor@os.in", password: "instructor123" },
       counselor: { email: "neha.verma@os.in", password: "counselor123" },
       employee: { email: "amit.kumar@os.in", password: "employee123" },
     };
@@ -93,8 +100,18 @@ const Login = () => {
               >
                 OS
               </div>
+              {/* <Title
+                level={1}
+                style={{
+                  color: "white",
+                  marginBottom: "16px",
+                  fontSize: "48px",
+                }}
+              >
+                OverSeas CRM
+              </Title> */}
               <SplitText
-                text="Radius OverSeas"
+                text="OverSeas CRM"
                 style={{
                   color: "white",
                   marginBottom: "16px",
@@ -118,7 +135,7 @@ const Login = () => {
                 }}
               >
                 Streamline your consultancy operations with our comprehensive
-                solution. Manage students, track applications, and grow your
+                CRM solution. Manage students, track applications, and grow your
                 study abroad business efficiently.
               </Paragraph>
             </div>
@@ -150,7 +167,7 @@ const Login = () => {
                 Welcome Back
               </Title>
               <Text type="secondary" style={{ fontSize: "16px" }}>
-                Sign in to your Radius OverSeas account
+                Sign in to your OverSeas CRM account
               </Text>
             </div>
 

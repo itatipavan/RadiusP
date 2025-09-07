@@ -245,35 +245,35 @@ const Login = () => {
                 Demo Credentials:
               </Text>
               <Space direction="vertical" style={{ width: "100%" }}>
-                <Button
-                  type="link"
-                  size="small"
-                  onClick={() => fillDemoCredentials("admin")}
-                  style={{ padding: 0, height: "auto", textAlign: "left" }}
-                >
-                  <Text style={{ fontSize: "13px" }}>
-                    <strong>Admin:</strong> admin@os.in / admin123
-                  </Text>
+                <Button type="link" size="small" onClick={() => fillDemoCredentials("super_user")} style={{ padding: 0, height: "auto", textAlign: "left" }}>
+                  <Text style={{ fontSize: "13px" }}><strong>Super:</strong> super@os.in / super123</Text>
                 </Button>
-                <Button
-                  type="link"
-                  size="small"
-                  onClick={() => fillDemoCredentials("counselor")}
-                  style={{ padding: 0, height: "auto", textAlign: "left" }}
-                >
-                  <Text style={{ fontSize: "13px" }}>
-                    <strong>Counselor:</strong> neha.verma@os.in / counselor123
-                  </Text>
+                <Button type="link" size="small" onClick={() => fillDemoCredentials("admin")} style={{ padding: 0, height: "auto", textAlign: "left" }}>
+                  <Text style={{ fontSize: "13px" }}><strong>Admin:</strong> admin@os.in / admin123</Text>
                 </Button>
-                <Button
-                  type="link"
-                  size="small"
-                  onClick={() => fillDemoCredentials("employee")}
-                  style={{ padding: 0, height: "auto", textAlign: "left" }}
-                >
-                  <Text style={{ fontSize: "13px" }}>
-                    <strong>Employee:</strong> amit.kumar@os.in / employee123
-                  </Text>
+                <Button type="link" size="small" onClick={() => fillDemoCredentials("ceo")} style={{ padding: 0, height: "auto", textAlign: "left" }}>
+                  <Text style={{ fontSize: "13px" }}><strong>CEO:</strong> ceo@os.in / ceo123</Text>
+                </Button>
+                <Button type="link" size="small" onClick={() => fillDemoCredentials("head")} style={{ padding: 0, height: "auto", textAlign: "left" }}>
+                  <Text style={{ fontSize: "13px" }}><strong>Head:</strong> head@os.in / head123</Text>
+                </Button>
+                <Button type="link" size="small" onClick={() => fillDemoCredentials("accountant")} style={{ padding: 0, height: "auto", textAlign: "left" }}>
+                  <Text style={{ fontSize: "13px" }}><strong>Accountant:</strong> account@os.in / account123</Text>
+                </Button>
+                <Button type="link" size="small" onClick={() => fillDemoCredentials("customer_support")} style={{ padding: 0, height: "auto", textAlign: "left" }}>
+                  <Text style={{ fontSize: "13px" }}><strong>Support:</strong> support1@os.in / support123</Text>
+                </Button>
+                <Button type="link" size="small" onClick={() => fillDemoCredentials("receptionist")} style={{ padding: 0, height: "auto", textAlign: "left" }}>
+                  <Text style={{ fontSize: "13px" }}><strong>Receptionist:</strong> reception@os.in / reception123</Text>
+                </Button>
+                <Button type="link" size="small" onClick={() => fillDemoCredentials("instructor")} style={{ padding: 0, height: "auto", textAlign: "left" }}>
+                  <Text style={{ fontSize: "13px" }}><strong>Instructor:</strong> instructor@os.in / instructor123</Text>
+                </Button>
+                <Button type="link" size="small" onClick={() => fillDemoCredentials("counselor")} style={{ padding: 0, height: "auto", textAlign: "left" }}>
+                  <Text style={{ fontSize: "13px" }}><strong>Counselor:</strong> neha.verma@os.in / counselor123</Text>
+                </Button>
+                <Button type="link" size="small" onClick={() => fillDemoCredentials("employee")} style={{ padding: 0, height: "auto", textAlign: "left" }}>
+                  <Text style={{ fontSize: "13px" }}><strong>Employee:</strong> amit.kumar@os.in / employee123</Text>
                 </Button>
               </Space>
             </div>

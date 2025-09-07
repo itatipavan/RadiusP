@@ -124,6 +124,7 @@ const Students = () => {
           user.role === "admin"
             ? assignedCounselor?.name || user.name
             : user.name,
+        supportAssigneeId: values.supportAssigneeId || null,
         dateOfBirth: values.dateOfBirth?.format("YYYY-MM-DD"),
         graduationYear: values.graduationYear?.format("YYYY"),
         joinDate: new Date().toISOString().split("T")[0],
@@ -165,6 +166,7 @@ const Students = () => {
           user.role === "admin"
             ? assignedCounselor?.name || editingStudent.assignedCounselor
             : editingStudent.assignedCounselor,
+        supportAssigneeId: values.supportAssigneeId ?? editingStudent.supportAssigneeId ?? null,
         dateOfBirth: values.dateOfBirth?.format("YYYY-MM-DD"),
         graduationYear: values.graduationYear?.format("YYYY"),
       };
@@ -411,6 +413,9 @@ const Students = () => {
   const getCounselors = () =>
     userStorage.getUsers().filter((u) => u.role === "counselor");
 
+  const getSupportAgents = () =>
+    userStorage.getUsers().filter((u) => u.role === "customer_support");
+
   const StudentForm = ({ onFinish, initialValues = {} }) => (
     <Form
       form={form}
@@ -631,6 +636,19 @@ const Students = () => {
           </Col>
         )}
       </Row>
+      {(user.role === 'admin' || user.role === 'head') && (
+        <Row gutter={16}>
+          <Col span={12}>
+            <Form.Item name="supportAssigneeId" label="Assign Customer Support">
+              <Select placeholder="Select Support Agent" allowClear>
+                {getSupportAgents().map((s) => (
+                  <Option key={s.id} value={s.id}>{s.name}</Option>
+                ))}
+              </Select>
+            </Form.Item>
+          </Col>
+        </Row>
+      )}
       <Form.Item name="notes" label="Additional Notes">
         <TextArea
           rows={3}

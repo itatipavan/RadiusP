@@ -29,7 +29,7 @@ const Login = () => {
     try {
       const result = await login(values);
       if (result.success) {
-        messageApi.success("Login successful! Welcome to Radius OverSeas");
+        messageApi.success("Login successful! Welcome to OverSeas CRM");
         navigate("/dashboard");
       } else {
         messageApi.error(result.error || "Login failed. Please try again.");
@@ -43,7 +43,14 @@ const Login = () => {
 
   const fillDemoCredentials = (role) => {
     const credentials = {
+      super_user: { email: "super@os.in", password: "super123" },
       admin: { email: "admin@os.in", password: "admin123" },
+      ceo: { email: "ceo@os.in", password: "ceo123" },
+      head: { email: "head@os.in", password: "head123" },
+      accountant: { email: "account@os.in", password: "account123" },
+      customer_support: { email: "support1@os.in", password: "support123" },
+      receptionist: { email: "reception@os.in", password: "reception123" },
+      instructor: { email: "instructor@os.in", password: "instructor123" },
       counselor: { email: "neha.verma@os.in", password: "counselor123" },
       employee: { email: "amit.kumar@os.in", password: "employee123" },
     };
@@ -93,8 +100,18 @@ const Login = () => {
               >
                 OS
               </div>
+              {/* <Title
+                level={1}
+                style={{
+                  color: "white",
+                  marginBottom: "16px",
+                  fontSize: "48px",
+                }}
+              >
+                OverSeas CRM
+              </Title> */}
               <SplitText
-                text="Radius OverSeas"
+                text="OverSeas CRM"
                 style={{
                   color: "white",
                   marginBottom: "16px",
@@ -118,7 +135,7 @@ const Login = () => {
                 }}
               >
                 Streamline your consultancy operations with our comprehensive
-                solution. Manage students, track applications, and grow your
+                CRM solution. Manage students, track applications, and grow your
                 study abroad business efficiently.
               </Paragraph>
             </div>
@@ -150,7 +167,7 @@ const Login = () => {
                 Welcome Back
               </Title>
               <Text type="secondary" style={{ fontSize: "16px" }}>
-                Sign in to your Radius OverSeas account
+                Sign in to your OverSeas CRM account
               </Text>
             </div>
 
@@ -228,35 +245,35 @@ const Login = () => {
                 Demo Credentials:
               </Text>
               <Space direction="vertical" style={{ width: "100%" }}>
-                <Button
-                  type="link"
-                  size="small"
-                  onClick={() => fillDemoCredentials("admin")}
-                  style={{ padding: 0, height: "auto", textAlign: "left" }}
-                >
-                  <Text style={{ fontSize: "13px" }}>
-                    <strong>Admin:</strong> admin@os.in / admin123
-                  </Text>
+                <Button type="link" size="small" onClick={() => fillDemoCredentials("super_user")} style={{ padding: 0, height: "auto", textAlign: "left" }}>
+                  <Text style={{ fontSize: "13px" }}><strong>Super:</strong> super@os.in / super123</Text>
                 </Button>
-                <Button
-                  type="link"
-                  size="small"
-                  onClick={() => fillDemoCredentials("counselor")}
-                  style={{ padding: 0, height: "auto", textAlign: "left" }}
-                >
-                  <Text style={{ fontSize: "13px" }}>
-                    <strong>Counselor:</strong> neha.verma@os.in / counselor123
-                  </Text>
+                <Button type="link" size="small" onClick={() => fillDemoCredentials("admin")} style={{ padding: 0, height: "auto", textAlign: "left" }}>
+                  <Text style={{ fontSize: "13px" }}><strong>Admin:</strong> admin@os.in / admin123</Text>
                 </Button>
-                <Button
-                  type="link"
-                  size="small"
-                  onClick={() => fillDemoCredentials("employee")}
-                  style={{ padding: 0, height: "auto", textAlign: "left" }}
-                >
-                  <Text style={{ fontSize: "13px" }}>
-                    <strong>Employee:</strong> amit.kumar@os.in / employee123
-                  </Text>
+                <Button type="link" size="small" onClick={() => fillDemoCredentials("ceo")} style={{ padding: 0, height: "auto", textAlign: "left" }}>
+                  <Text style={{ fontSize: "13px" }}><strong>CEO:</strong> ceo@os.in / ceo123</Text>
+                </Button>
+                <Button type="link" size="small" onClick={() => fillDemoCredentials("head")} style={{ padding: 0, height: "auto", textAlign: "left" }}>
+                  <Text style={{ fontSize: "13px" }}><strong>Head:</strong> head@os.in / head123</Text>
+                </Button>
+                <Button type="link" size="small" onClick={() => fillDemoCredentials("accountant")} style={{ padding: 0, height: "auto", textAlign: "left" }}>
+                  <Text style={{ fontSize: "13px" }}><strong>Accountant:</strong> account@os.in / account123</Text>
+                </Button>
+                <Button type="link" size="small" onClick={() => fillDemoCredentials("customer_support")} style={{ padding: 0, height: "auto", textAlign: "left" }}>
+                  <Text style={{ fontSize: "13px" }}><strong>Support:</strong> support1@os.in / support123</Text>
+                </Button>
+                <Button type="link" size="small" onClick={() => fillDemoCredentials("receptionist")} style={{ padding: 0, height: "auto", textAlign: "left" }}>
+                  <Text style={{ fontSize: "13px" }}><strong>Receptionist:</strong> reception@os.in / reception123</Text>
+                </Button>
+                <Button type="link" size="small" onClick={() => fillDemoCredentials("instructor")} style={{ padding: 0, height: "auto", textAlign: "left" }}>
+                  <Text style={{ fontSize: "13px" }}><strong>Instructor:</strong> instructor@os.in / instructor123</Text>
+                </Button>
+                <Button type="link" size="small" onClick={() => fillDemoCredentials("counselor")} style={{ padding: 0, height: "auto", textAlign: "left" }}>
+                  <Text style={{ fontSize: "13px" }}><strong>Counselor:</strong> neha.verma@os.in / counselor123</Text>
+                </Button>
+                <Button type="link" size="small" onClick={() => fillDemoCredentials("employee")} style={{ padding: 0, height: "auto", textAlign: "left" }}>
+                  <Text style={{ fontSize: "13px" }}><strong>Employee:</strong> amit.kumar@os.in / employee123</Text>
                 </Button>
               </Space>
             </div>

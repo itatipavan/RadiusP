@@ -10,7 +10,15 @@ export const mockUsers = [
   { id: '2', email: 'neha.verma@os.in', password: 'counselor123', name: 'Neha Verma', role: 'counselor', avatar: null, createdAt: '2024-01-01T00:00:00.000Z', lastLogin: '2024-01-20T08:30:00.000Z', isActive: true },
   { id: '3', email: 'arjun.menon@os.in', password: 'counselor123', name: 'Arjun Menon', role: 'counselor', avatar: null, createdAt: '2024-01-01T00:00:00.000Z', lastLogin: '2024-01-19T16:45:00.000Z', isActive: true },
   { id: '4', email: 'amit.kumar@os.in', password: 'employee123', name: 'Amit Kumar', role: 'employee', avatar: null, createdAt: '2024-01-01T00:00:00.000Z', lastLogin: '2024-01-20T07:15:00.000Z', isActive: true },
-  { id: '5', email: 'priya.singh@os.in', password: 'employee123', name: 'Priya Singh', role: 'employee', avatar: null, createdAt: '2024-01-01T00:00:00.000Z', lastLogin: '2024-01-18T14:20:00.000Z', isActive: true }
+  { id: '5', email: 'priya.singh@os.in', password: 'employee123', name: 'Priya Singh', role: 'employee', avatar: null, createdAt: '2024-01-01T00:00:00.000Z', lastLogin: '2024-01-18T14:20:00.000Z', isActive: true },
+  { id: '6', email: 'super@os.in', password: 'super123', name: 'Super User', role: 'super_user', avatar: null, createdAt: '2024-01-01T00:00:00.000Z', lastLogin: '2024-01-20T10:00:00.000Z', isActive: true },
+  { id: '7', email: 'ceo@os.in', password: 'ceo123', name: 'Chief Executive', role: 'ceo', avatar: null, createdAt: '2024-01-01T00:00:00.000Z', lastLogin: '2024-01-20T10:05:00.000Z', isActive: true },
+  { id: '8', email: 'head@os.in', password: 'head123', name: 'Department Head', role: 'head', avatar: null, createdAt: '2024-01-01T00:00:00.000Z', lastLogin: '2024-01-20T10:10:00.000Z', isActive: true },
+  { id: '9', email: 'account@os.in', password: 'account123', name: 'Accountant', role: 'accountant', avatar: null, createdAt: '2024-01-01T00:00:00.000Z', lastLogin: '2024-01-20T10:20:00.000Z', isActive: true },
+  { id: '10', email: 'support1@os.in', password: 'support123', name: 'Support One', role: 'customer_support', avatar: null, createdAt: '2024-01-01T00:00:00.000Z', lastLogin: '2024-01-20T10:30:00.000Z', isActive: true },
+  { id: '11', email: 'support2@os.in', password: 'support123', name: 'Support Two', role: 'customer_support', avatar: null, createdAt: '2024-01-01T00:00:00.000Z', lastLogin: '2024-01-20T10:35:00.000Z', isActive: true },
+  { id: '12', email: 'reception@os.in', password: 'reception123', name: 'Receptionist', role: 'receptionist', avatar: null, createdAt: '2024-01-01T00:00:00.000Z', lastLogin: '2024-01-20T10:40:00.000Z', isActive: true },
+  { id: '13', email: 'instructor@os.in', password: 'instructor123', name: 'Instructor', role: 'instructor', avatar: null, createdAt: '2024-01-01T00:00:00.000Z', lastLogin: '2024-01-20T10:45:00.000Z', isActive: true }
 ];
 
 export const mockUniversities = [
@@ -27,9 +35,9 @@ export const mockUniversities = [
 ];
 
 export const mockStudents = [
-  { id: '1', firstName: 'Arjun', lastName: 'Patel', fullName: 'Arjun Patel', email: 'arjun.patel@email.com', phone: '+91 9876543210', dateOfBirth: '2000-05-15', gender: 'male', address: '123 MG Road, Bangalore, Karnataka, India', status: 'Applied', destination: 'Canada', preferredProgram: 'Computer Science', preferredUniversity: 'University of Toronto', assignedCounselor: 'Neha Verma', counselorId: '2', currentEducation: 'bachelor', fieldOfStudy: 'Computer Science', institution: 'Bangalore Institute of Technology', gpa: '8.5 CGPA', graduationYear: '2023', englishTest: 'IELTS', testScore: '7.5', intakeYear: 'Fall 2024', budget: '30-50', priority: 'High', joinDate: '2024-01-15', lastActivity: '2024-01-20', notes: 'Strong academic background, good English proficiency', createdAt: '2024-01-15T00:00:00.000Z', updatedAt: '2024-01-20T00:00:00.000Z' },
-  { id: '2', firstName: 'Priya', lastName: 'Sharma', fullName: 'Priya Sharma', email: 'priya.sharma@email.com', phone: '+91 9876543211', dateOfBirth: '1999-08-22', gender: 'female', address: '456 Connaught Place, New Delhi, India', status: 'Visa Approved', destination: 'Australia', preferredProgram: 'Business Administration', preferredUniversity: 'University of Melbourne', assignedCounselor: 'Arjun Menon', counselorId: '3', currentEducation: 'bachelor', fieldOfStudy: 'Business Administration', institution: 'Delhi University', gpa: '85%', graduationYear: '2022', englishTest: 'IELTS', testScore: '7.0', intakeYear: 'Semester 1 2024', budget: '20-30', priority: 'Medium', joinDate: '2024-01-10', lastActivity: '2024-01-19', notes: 'Ready for departure, all documents approved', createdAt: '2024-01-10T00:00:00.000Z', updatedAt: '2024-01-19T00:00:00.000Z' },
-  { id: '3', firstName: 'Rahul', lastName: 'Kumar', fullName: 'Rahul Kumar', email: 'rahul.kumar@email.com', phone: '+91 9876543212', dateOfBirth: '1998-12-03', gender: 'male', address: '789 Park Street, Kolkata, West Bengal, India', status: 'Enrolled', destination: 'UK', preferredProgram: 'Data Science', preferredUniversity: 'Imperial College London', assignedCounselor: 'Neha Verma', counselorId: '2', currentEducation: 'bachelor', fieldOfStudy: 'Mathematics', institution: 'Indian Institute of Science', gpa: '9.2 CGPA', graduationYear: '2022', englishTest: 'IELTS', testScore: '8.0', intakeYear: 'September 2024', budget: '50+', priority: 'Low', joinDate: '2023-12-20', lastActivity: '2024-01-18', notes: 'Successfully enrolled, excellent student', createdAt: '2023-12-20T00:00:00.000Z', updatedAt: '2024-01-18T00:00:00.000Z' }
+  { id: '1', firstName: 'Arjun', lastName: 'Patel', fullName: 'Arjun Patel', email: 'arjun.patel@email.com', phone: '+91 9876543210', dateOfBirth: '2000-05-15', gender: 'male', address: '123 MG Road, Bangalore, Karnataka, India', status: 'Applied', destination: 'Canada', preferredProgram: 'Computer Science', preferredUniversity: 'University of Toronto', assignedCounselor: 'Neha Verma', counselorId: '2', supportAssigneeId: '10', currentEducation: 'bachelor', fieldOfStudy: 'Computer Science', institution: 'Bangalore Institute of Technology', gpa: '8.5 CGPA', graduationYear: '2023', englishTest: 'IELTS', testScore: '7.5', intakeYear: 'Fall 2024', budget: '30-50', priority: 'High', joinDate: '2024-01-15', lastActivity: '2024-01-20', notes: 'Strong academic background, good English proficiency', instructorStatus: 'sent', remarkHistory: [], createdAt: '2024-01-15T00:00:00.000Z', updatedAt: '2024-01-20T00:00:00.000Z' },
+  { id: '2', firstName: 'Priya', lastName: 'Sharma', fullName: 'Priya Sharma', email: 'priya.sharma@email.com', phone: '+91 9876543211', dateOfBirth: '1999-08-22', gender: 'female', address: '456 Connaught Place, New Delhi, India', status: 'Visa Approved', destination: 'Australia', preferredProgram: 'Business Administration', preferredUniversity: 'University of Melbourne', assignedCounselor: 'Arjun Menon', counselorId: '3', supportAssigneeId: '10', currentEducation: 'bachelor', fieldOfStudy: 'Business Administration', institution: 'Delhi University', gpa: '85%', graduationYear: '2022', englishTest: 'IELTS', testScore: '7.0', intakeYear: 'Semester 1 2024', budget: '20-30', priority: 'Medium', joinDate: '2024-01-10', lastActivity: '2024-01-19', notes: 'Ready for departure, all documents approved', instructorStatus: null, remarkHistory: [], createdAt: '2024-01-10T00:00:00.000Z', updatedAt: '2024-01-19T00:00:00.000Z' },
+  { id: '3', firstName: 'Rahul', lastName: 'Kumar', fullName: 'Rahul Kumar', email: 'rahul.kumar@email.com', phone: '+91 9876543212', dateOfBirth: '1998-12-03', gender: 'male', address: '789 Park Street, Kolkata, West Bengal, India', status: 'Enrolled', destination: 'UK', preferredProgram: 'Data Science', preferredUniversity: 'Imperial College London', assignedCounselor: 'Neha Verma', counselorId: '2', supportAssigneeId: '11', currentEducation: 'bachelor', fieldOfStudy: 'Mathematics', institution: 'Indian Institute of Science', gpa: '9.2 CGPA', graduationYear: '2022', englishTest: 'IELTS', testScore: '8.0', intakeYear: 'September 2024', budget: '50+', priority: 'Low', joinDate: '2023-12-20', lastActivity: '2024-01-18', notes: 'Successfully enrolled, excellent student', instructorStatus: 'sent', remarkHistory: [], createdAt: '2023-12-20T00:00:00.000Z', updatedAt: '2024-01-18T00:00:00.000Z' }
 ];
 
 export const mockApplications = [
@@ -47,12 +55,27 @@ export const mockEmployees = [
 export const initializeData = () => {
   if (!storage.get('overseas_initialized')) {
     userStorage.setUsers(mockUsers);
-    studentStorage.setStudents(mockStudents);
+    // backfill student extras
+    const seeded = mockStudents.map(s => ({ remarkHistory: [], instructorStatus: null, supportAssigneeId: s.supportAssigneeId || null, ...s }));
+    studentStorage.setStudents(seeded);
     universityStorage.setUniversities(mockUniversities);
     applicationStorage.setApplications(mockApplications);
     employeeStorage.setEmployees(mockEmployees);
     storage.set('overseas_initialized', true);
     return true;
   }
+  // migrate: ensure new roles exist
+  const existing = userStorage.getUsers();
+  const emails = new Set(existing.map(u => u.email));
+  const toAdd = mockUsers.filter(u => !emails.has(u.email));
+  if (toAdd.length) userStorage.setUsers([...existing, ...toAdd]);
+  // migrate: backfill student fields
+  const students = studentStorage.getStudents().map(s => ({
+    remarkHistory: Array.isArray(s.remarkHistory) ? s.remarkHistory : [],
+    instructorStatus: typeof s.instructorStatus === 'string' || s.instructorStatus === null ? s.instructorStatus : null,
+    supportAssigneeId: s.supportAssigneeId || null,
+    ...s
+  }));
+  studentStorage.setStudents(students);
   return false;
 };

@@ -18,6 +18,12 @@ import Applications from "./pages/Applications";
 import Universities from "./pages/Universities";
 import Employees from "./pages/Employees";
 import Reports from "./pages/Reports";
+import WalkIn from "./pages/WalkIn";
+import Assignments from "./pages/Assignments";
+import Instructor from "./pages/Instructor";
+import Finance from "./pages/Finance";
+import PayDetails from "./pages/PayDetails";
+import Paysheets from "./pages/Paysheets";
 import MainLayout from "./components/MainLayout";
 
 // Ant Design theme configuration
@@ -95,6 +101,15 @@ const PublicRoute = ({ children }) => {
   return children;
 };
 
+const AccessRoute = ({ name, children }) => {
+  const { canAccessRoute, loading } = useAuth();
+  if (loading) return (
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', fontSize: '16px' }}>Loading...</div>
+  );
+  if (!canAccessRoute(name)) return <Navigate to="/dashboard" replace />;
+  return children;
+};
+
 const AppRoutes = () => {
   return (
     <Routes>
@@ -121,6 +136,12 @@ const AppRoutes = () => {
         <Route path="universities" element={<Universities />} />
         <Route path="employees" element={<Employees />} />
         <Route path="reports" element={<Reports />} />
+        <Route path="walkin" element={<AccessRoute name="walkin"><WalkIn /></AccessRoute>} />
+        <Route path="assignments" element={<AccessRoute name="assignments"><Assignments /></AccessRoute>} />
+        <Route path="instructor" element={<AccessRoute name="instructor"><Instructor /></AccessRoute>} />
+        <Route path="finance" element={<AccessRoute name="finance"><Finance /></AccessRoute>} />
+        <Route path="pay-details" element={<AccessRoute name="pay_details"><PayDetails /></AccessRoute>} />
+        <Route path="paysheets" element={<AccessRoute name="paysheets"><Paysheets /></AccessRoute>} />
       </Route>
       <Route path="*" element={<Navigate to="/dashboard" replace />} />
     </Routes>

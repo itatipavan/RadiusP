@@ -114,39 +114,36 @@ export const AuthProvider = ({ children }) => {
     if (!user) return false;
 
     const permissions = {
+      super_user: [
+        'view_dashboard','manage_system','manage_employees','manage_universities','manage_applications','manage_students','edit_students','delete_students','view_reports','assign_support'
+      ],
       admin: [
-        "view_dashboard",
-        "manage_students",
-        "edit_students",
-        "delete_students",
-        "manage_employees",
-        "edit_employees",
-        "delete_employees",
-        "manage_universities",
-        "edit_universities",
-        "delete_universities",
-        "manage_applications",
-        "edit_applications",
-        "delete_applications",
-        "view_reports",
-        "manage_system",
+        'view_dashboard','manage_system','manage_employees','manage_universities','manage_applications','manage_students','edit_students','delete_students','view_reports','assign_support'
+      ],
+      ceo: [
+        'view_dashboard','manage_employees','manage_universities','manage_applications','manage_students','edit_students','view_reports','view_salary','manage_salary','manage_paysheets'
+      ],
+      head: [
+        'view_dashboard','manage_employees','manage_universities','manage_applications','manage_students','edit_students','view_reports','assign_support','view_salary','manage_salary','manage_paysheets'
+      ],
+      accountant: [
+        'view_dashboard','view_reports','manage_finance'
+      ],
+      customer_support: [
+        'view_dashboard','view_reports'
+      ],
+      receptionist: [
+        'view_dashboard','walk_in_entry'
+      ],
+      instructor: [
+        'view_dashboard','view_reports','instructor_update'
       ],
       counselor: [
-        "view_dashboard",
-        "manage_students",
-        "edit_students",
-        "manage_applications",
-        "edit_applications",
-        "view_universities",
-        "view_reports",
+        'view_dashboard','manage_students','edit_students','manage_applications','edit_applications','view_universities','view_reports'
       ],
       employee: [
-        "view_dashboard",
-        "view_students",
-        "view_applications",
-        "view_universities",
-        "view_reports",
-      ],
+        'view_dashboard','view_students','view_applications','view_universities','view_reports'
+      ]
     };
 
     return permissions[user.role]?.includes(permission) || false;
@@ -154,9 +151,16 @@ export const AuthProvider = ({ children }) => {
 
   const getRoleDisplayName = (role) => {
     const roleNames = {
-      admin: "Administrator",
-      counselor: "Counselor",
-      employee: "Employee",
+      super_user: 'Super User',
+      admin: 'Administrator',
+      ceo: 'CEO',
+      head: 'Head',
+      accountant: 'Accountant',
+      customer_support: 'Customer Support',
+      receptionist: 'Receptionist',
+      instructor: 'Instructor',
+      counselor: 'Counselor',
+      employee: 'Employee'
     };
     return roleNames[role] || role;
   };
@@ -165,12 +169,18 @@ export const AuthProvider = ({ children }) => {
     if (!user) return false;
 
     const routePermissions = {
-      dashboard: ["admin", "counselor", "employee"],
-      students: ["admin", "counselor", "employee"],
-      applications: ["admin", "counselor", "employee"],
-      universities: ["admin", "counselor", "employee"],
-      employees: ["admin"],
-      reports: ["admin", "counselor", "employee"],
+      dashboard: ['super_user','admin','ceo','head','accountant','customer_support','receptionist','instructor','counselor','employee'],
+      students: ['super_user','admin','ceo','head','accountant','customer_support','instructor','counselor','employee'],
+      applications: ['super_user','admin','ceo','head','accountant','customer_support','instructor','counselor','employee'],
+      universities: ['super_user','admin','ceo','head','accountant','customer_support','receptionist','instructor','counselor','employee'],
+      employees: ['super_user','admin','ceo','head'],
+      reports: ['super_user','admin','ceo','head','instructor'],
+      walkin: ['receptionist'],
+      assignments: ['super_user','admin','head'],
+      instructor: ['instructor'],
+      finance: ['accountant'],
+      pay_details: ['ceo','head'],
+      paysheets: ['ceo','head']
     };
 
     return routePermissions[routeName]?.includes(user.role) || false;

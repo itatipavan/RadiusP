@@ -169,12 +169,18 @@ export const AuthProvider = ({ children }) => {
     if (!user) return false;
 
     const routePermissions = {
-      dashboard: ["admin", "counselor", "employee"],
-      students: ["admin", "counselor", "employee"],
-      applications: ["admin", "counselor", "employee"],
-      universities: ["admin", "counselor", "employee"],
-      employees: ["admin"],
-      reports: ["admin", "counselor", "employee"],
+      dashboard: ['super_user','admin','ceo','head','accountant','customer_support','receptionist','instructor','counselor','employee'],
+      students: ['super_user','admin','ceo','head','accountant','customer_support','instructor','counselor','employee'],
+      applications: ['super_user','admin','ceo','head','accountant','customer_support','instructor','counselor','employee'],
+      universities: ['super_user','admin','ceo','head','accountant','customer_support','receptionist','instructor','counselor','employee'],
+      employees: ['super_user','admin','ceo','head'],
+      reports: ['super_user','admin','ceo','head','instructor'],
+      walkin: ['receptionist'],
+      assignments: ['super_user','admin','head'],
+      instructor: ['instructor'],
+      finance: ['accountant'],
+      pay_details: ['ceo','head'],
+      paysheets: ['ceo','head']
     };
 
     return routePermissions[routeName]?.includes(user.role) || false;

@@ -310,7 +310,11 @@ export const auditStorage = {
 // App initialization
 export const appStorage = {
   isInitialized: () => storage.get(STORAGE_KEYS.APP_INITIALIZED) || false,
-  setInitialized: () => storage.set(STORAGE_KEYS.APP_INITIALIZED, true),
+  setInitialized: () => {
+    storage.set(STORAGE_KEYS.APP_INITIALIZED, true);
+    storage.set(STORAGE_KEYS.SCHEMA_VERSION, 1);
+    return true;
+  },
   reset: () => {
     storage.clear();
     return true;

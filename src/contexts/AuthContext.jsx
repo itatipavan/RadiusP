@@ -114,39 +114,36 @@ export const AuthProvider = ({ children }) => {
     if (!user) return false;
 
     const permissions = {
+      super_user: [
+        'view_dashboard','manage_system','manage_employees','manage_universities','manage_applications','manage_students','edit_students','delete_students','view_reports','assign_support'
+      ],
       admin: [
-        "view_dashboard",
-        "manage_students",
-        "edit_students",
-        "delete_students",
-        "manage_employees",
-        "edit_employees",
-        "delete_employees",
-        "manage_universities",
-        "edit_universities",
-        "delete_universities",
-        "manage_applications",
-        "edit_applications",
-        "delete_applications",
-        "view_reports",
-        "manage_system",
+        'view_dashboard','manage_system','manage_employees','manage_universities','manage_applications','manage_students','edit_students','delete_students','view_reports','assign_support'
+      ],
+      ceo: [
+        'view_dashboard','manage_employees','manage_universities','manage_applications','manage_students','edit_students','view_reports','view_salary','manage_salary','manage_paysheets'
+      ],
+      head: [
+        'view_dashboard','manage_employees','manage_universities','manage_applications','manage_students','edit_students','view_reports','assign_support','view_salary','manage_salary','manage_paysheets'
+      ],
+      accountant: [
+        'view_dashboard','view_reports','manage_finance'
+      ],
+      customer_support: [
+        'view_dashboard','view_reports'
+      ],
+      receptionist: [
+        'view_dashboard','walk_in_entry'
+      ],
+      instructor: [
+        'view_dashboard','view_reports','instructor_update'
       ],
       counselor: [
-        "view_dashboard",
-        "manage_students",
-        "edit_students",
-        "manage_applications",
-        "edit_applications",
-        "view_universities",
-        "view_reports",
+        'view_dashboard','manage_students','edit_students','manage_applications','edit_applications','view_universities','view_reports'
       ],
       employee: [
-        "view_dashboard",
-        "view_students",
-        "view_applications",
-        "view_universities",
-        "view_reports",
-      ],
+        'view_dashboard','view_students','view_applications','view_universities','view_reports'
+      ]
     };
 
     return permissions[user.role]?.includes(permission) || false;

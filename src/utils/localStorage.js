@@ -218,6 +218,95 @@ export const employeeStorage = {
   }
 };
 
+// Finance: student payments
+export const paymentStorage = {
+  getPayments: () => storage.get(STORAGE_KEYS.PAYMENTS) || {},
+  setPayments: (map) => storage.set(STORAGE_KEYS.PAYMENTS, map),
+  getByStudentId: (studentId) => {
+    const map = paymentStorage.getPayments();
+    return map[studentId] || [];
+  },
+  addPayment: (studentId, payment) => {
+    const map = paymentStorage.getPayments();
+    const list = map[studentId] || [];
+    const item = {
+      id: Date.now().toString(),
+      status: 'due',
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      ...payment
+    };
+    map[studentId] = [...list, item];
+    return paymentStorage.setPayments(map);
+  },
+  updatePayment: (studentId, paymentId, patch) => {
+    const map = paymentStorage.getPayments();
+    const list = map[studentId] || [];
+    const idx = list.findIndex(p => p.id === paymentId);
+    if (idx !== -1) {
+      list[idx] = { ...list[idx], ...patch, updatedAt: new Date().toISOString() };
+      map[studentId] = list;
+      return paymentStorage.setPayments(map);
+    }
+    return false;
+  }
+};
+
+// HRM: pay details
+export const payDetailsStorage = {
+  getAll: () => storage.get(STORAGE_KEYS.PAY_DETAILS) || [],
+  setAll: (list) => storage.set(STORAGE_KEYS.PAY_DETAILS, list),
+  upsert: (employeeKey, details) => {
+    const list = payDetailsStorage.getAll();
+    const idx = list.findIndex(x => x.employeeKey === employeeKey);
+    const item = {
+      employeeKey,
+      base: 0,
+      allowances: 0,
+      deductions: 0,
+      effectiveFrom: new Date().toISOString(),
+      ...details
+    };
+    if (idx === -1) list.push(item); else list[idx] = item;
+    return payDetailsStorage.setAll(list);
+  },
+  getByEmployeeKey: (employeeKey) => {
+    return payDetailsStorage.getAll().find(x => x.employeeKey === employeeKey) || null;
+  }
+};
+
+// HRM: pay sheets
+export const paySheetStorage = {
+  getAll: () => storage.get(STORAGE_KEYS.PAY_SHEETS) || [],
+  setAll: (list) => storage.set(STORAGE_KEYS.PAY_SHEETS, list),
+  add: (sheet) => {
+    const list = paySheetStorage.getAll();
+    const item = { id: Date.now().toString(), createdAt: new Date().toISOString(), status: 'draft', ...sheet };
+    list.push(item);
+    return paySheetStorage.setAll(list);
+  },
+  update: (id, patch) => {
+    const list = paySheetStorage.getAll();
+    const idx = list.findIndex(x => x.id === id);
+    if (idx !== -1) {
+      list[idx] = { ...list[idx], ...patch, updatedAt: new Date().toISOString() };
+      return paySheetStorage.setAll(list);
+    }
+    return false;
+  }
+};
+
+// Audit trail
+export const auditStorage = {
+  getAll: () => storage.get(STORAGE_KEYS.AUDIT_LOGS) || [],
+  setAll: (list) => storage.set(STORAGE_KEYS.AUDIT_LOGS, list),
+  add: (entry) => {
+    const list = auditStorage.getAll();
+    list.push({ id: Date.now().toString(), timestamp: new Date().toISOString(), ...entry });
+    return auditStorage.setAll(list);
+  }
+};
+
 // App initialization
 export const appStorage = {
   isInitialized: () => storage.get(STORAGE_KEYS.APP_INITIALIZED) || false,

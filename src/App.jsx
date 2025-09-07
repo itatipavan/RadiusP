@@ -101,6 +101,15 @@ const PublicRoute = ({ children }) => {
   return children;
 };
 
+const AccessRoute = ({ name, children }) => {
+  const { canAccessRoute, loading } = useAuth();
+  if (loading) return (
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', fontSize: '16px' }}>Loading...</div>
+  );
+  if (!canAccessRoute(name)) return <Navigate to="/dashboard" replace />;
+  return children;
+};
+
 const AppRoutes = () => {
   return (
     <Routes>
@@ -127,12 +136,12 @@ const AppRoutes = () => {
         <Route path="universities" element={<Universities />} />
         <Route path="employees" element={<Employees />} />
         <Route path="reports" element={<Reports />} />
-        <Route path="walkin" element={<WalkIn />} />
-        <Route path="assignments" element={<Assignments />} />
-        <Route path="instructor" element={<Instructor />} />
-        <Route path="finance" element={<Finance />} />
-        <Route path="pay-details" element={<PayDetails />} />
-        <Route path="paysheets" element={<Paysheets />} />
+        <Route path="walkin" element={<AccessRoute name="walkin"><WalkIn /></AccessRoute>} />
+        <Route path="assignments" element={<AccessRoute name="assignments"><Assignments /></AccessRoute>} />
+        <Route path="instructor" element={<AccessRoute name="instructor"><Instructor /></AccessRoute>} />
+        <Route path="finance" element={<AccessRoute name="finance"><Finance /></AccessRoute>} />
+        <Route path="pay-details" element={<AccessRoute name="pay_details"><PayDetails /></AccessRoute>} />
+        <Route path="paysheets" element={<AccessRoute name="paysheets"><Paysheets /></AccessRoute>} />
       </Route>
       <Route path="*" element={<Navigate to="/dashboard" replace />} />
     </Routes>

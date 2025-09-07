@@ -74,6 +74,9 @@ const Students = () => {
           (student) => student.counselorId === user.id
         );
       }
+      if (user.role === "customer_support") {
+        allStudents = allStudents.filter((student) => student.supportAssigneeId === user.id);
+      }
       setStudents(allStudents);
       setFilteredStudents(allStudents);
     } catch (error) {

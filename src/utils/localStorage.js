@@ -7,7 +7,12 @@ const STORAGE_KEYS = {
   APPLICATIONS: 'overseas_applications',
   EMPLOYEES: 'overseas_employees',
   CURRENT_USER: 'overseas_current_user',
-  APP_INITIALIZED: 'overseas_initialized'
+  APP_INITIALIZED: 'overseas_initialized',
+  SCHEMA_VERSION: 'overseas_schema_version',
+  PAY_DETAILS: 'overseas_pay_details',
+  PAY_SHEETS: 'overseas_pay_sheets',
+  PAYMENTS: 'overseas_payments',
+  AUDIT_LOGS: 'overseas_audit_logs'
 };
 
 // Generic localStorage functions

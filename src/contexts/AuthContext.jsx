@@ -151,9 +151,16 @@ export const AuthProvider = ({ children }) => {
 
   const getRoleDisplayName = (role) => {
     const roleNames = {
-      admin: "Administrator",
-      counselor: "Counselor",
-      employee: "Employee",
+      super_user: 'Super User',
+      admin: 'Administrator',
+      ceo: 'CEO',
+      head: 'Head',
+      accountant: 'Accountant',
+      customer_support: 'Customer Support',
+      receptionist: 'Receptionist',
+      instructor: 'Instructor',
+      counselor: 'Counselor',
+      employee: 'Employee'
     };
     return roleNames[role] || role;
   };

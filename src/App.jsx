@@ -18,6 +18,12 @@ import Applications from "./pages/Applications";
 import Universities from "./pages/Universities";
 import Employees from "./pages/Employees";
 import Reports from "./pages/Reports";
+import WalkIn from "./pages/WalkIn";
+import Assignments from "./pages/Assignments";
+import Instructor from "./pages/Instructor";
+import Finance from "./pages/Finance";
+import PayDetails from "./pages/PayDetails";
+import Paysheets from "./pages/Paysheets";
 import MainLayout from "./components/MainLayout";
 
 // Ant Design theme configuration
